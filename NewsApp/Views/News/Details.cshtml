@@ -1,0 +1,22 @@
+@model NewsItem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <a class="btn btn-primary" asp-action="Index">Back to all news</a>
+    <h1>@Model.Title</h1>
+    <h2>@Model.SubTitle</h2>
+    <img src="@Model.PathToImage" alt="@Model.PathToImage"/>
+    <p>@Model.Content</p>
+</div>
+</body>
+</html>

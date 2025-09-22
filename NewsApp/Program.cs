@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using NewsApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<NewsAppDbContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

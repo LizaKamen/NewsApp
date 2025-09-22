@@ -1,0 +1,42 @@
+@model List<NewsItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <a class="btn btn-primary" asp-action="Create">Create</a>
+    @{
+        if (Model.Count > 0)
+        {
+            <div class="row">
+            @foreach (var newsItem in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@newsItem.PathToImage" alt="@newsItem.PathToImage">
+                        <div class="card-body">
+
+                            <h5 class="card-title">@newsItem.Title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@newsItem.SubTitle</h6>
+                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@newsItem.Id">View
+                                details</a>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@newsItem.Id">Edit</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@newsItem.Id">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        }
+    }
+</div>
+</body>
+</html>
