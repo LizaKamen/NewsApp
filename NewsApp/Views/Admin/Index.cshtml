@@ -1,0 +1,58 @@
+@model List<NewsItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <a class="btn btn-primary" asp-action="Create">Create</a>
+    @{
+        if (Model.Count > 0)
+        {
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>SubTitle</th>
+                        <th>Content</th>
+                        <th>Created</th>
+                        <th>Author</th>
+                        <th>Path to image</th>
+                        <th>Image preview</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var newsItem in Model)
+                    {
+                        <tr>
+                            <td>@newsItem.Title</td>
+                            <td>@newsItem.SubTitle</td>
+                            <td>@newsItem.Content</td>
+                            <td>@newsItem.Created</td>
+                            <td>@newsItem.Author</td>
+                            <td>@newsItem.PathToImage</td>
+                            <td><img width="30px" src="@newsItem.PathToImage" alt="@newsItem.PathToImage"></td>
+                            <td>
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@newsItem.Id">Edit</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@newsItem.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+</div>
+</body>
+</html>

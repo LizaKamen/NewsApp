@@ -1,21 +1,24 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NewsApp.Data;
 using NewsApp.Models;
 
 namespace NewsApp.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly NewsAppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(NewsAppDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var threeLastNews = await _context.NewsItems.OrderByDescending(x => x.Created).Take(3).ToListAsync();
+        return View(threeLastNews);
     }
 
     public IActionResult Privacy()
