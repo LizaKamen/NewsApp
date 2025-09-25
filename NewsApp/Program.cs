@@ -2,12 +2,26 @@ using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using NewsApp.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using NewsApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+var supportedCultures = new[] { "en", "ru", "ja-jp" };
+var supportedUICultures = new[] { "en", "ru", "ja-jp" };
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.SetDefaultCulture("en");
+    options.AddSupportedCultures(supportedCultures);
+    options.AddSupportedUICultures(supportedUICultures);
+});
 
 builder.Services.AddDbContext<NewsAppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -24,6 +38,8 @@ builder.Services.AddDefaultIdentity<User>(options =>
     .AddRoles<IdentityRole>().AddEntityFrameworkStores<NewsAppDbContext>();
 builder.Services.AddRazorPages();
 var app = builder.Build();
+
+app.UseRequestLocalization();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -56,9 +72,9 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<NewsAppDbContext>();
         var userManager = services.GetRequiredService<UserManager<User>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-        
+
         await context.Database.MigrateAsync();
-        
+
         var roles = new[] { "Admin", "User" };
         foreach (var role in roles)
         {

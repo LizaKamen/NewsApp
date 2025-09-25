@@ -1,3 +1,6 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @model NewsItem
 
 @{
@@ -7,33 +10,30 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <title>title</title>
-</head>
 <body>
 <div>
-    <a class="btn btn-primary" asp-action="Index">Back to all news</a>
+    <a class="btn btn-primary" asp-action="Index">@Localizer["Back"]</a>
     <form asp-action="Create" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="Title">Title</label>
+            <label for="Title">@Localizer["Title"]</label>
             <input type="text" class="form-control" asp-for="Title"/>
         </div>
 
         <div class="form-group">
-            <label for="SubTitle">SubTitle</label>
+            <label for="SubTitle">@Localizer["Subtitle"]</label>
             <input type="text" class="form-control" asp-for="SubTitle"/>
         </div>
 
         <div class="form-group">
-            <label for="Title">Content</label>
+            <label for="Title">@Localizer["Content"]</label>
             <input type="text" class="form-control" asp-for="Content"/>
         </div>
 
         <div class="form-group">
-            <label for="ImageFile">Image</label>
+            <label for="ImageFile">@Localizer["Image"]</label>
             <input type="file" class="form-control" asp-for="ImageFile"/>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">@Localizer["SubmitCreate"]</button>
     </form>
 </div>
 </body>

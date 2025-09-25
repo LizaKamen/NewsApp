@@ -1,3 +1,5 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model NewsItem
 
 @{
@@ -12,7 +14,7 @@
 </head>
 <body>
 <div>
-    <a class="btn btn-primary" asp-action="Index">Back to all news</a>
+    <a class="btn btn-primary" asp-action="Index">@Localizer["Back"]</a>
     <h1>@Model.Title</h1>
     <h2>@Model.SubTitle</h2>
     <h3>@Model.Created</h3>

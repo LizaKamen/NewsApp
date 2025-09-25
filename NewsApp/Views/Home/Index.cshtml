@@ -1,4 +1,6 @@
-﻿@model List<NewsItem>;
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model List<NewsItem>;
 
 @{
     ViewData["Title"] = "Home Page";
@@ -17,8 +19,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">@newsItem.Title</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">@newsItem.SubTitle</h6>
-                                <a class="btn btn-primary" asp-controller="News" asp-action="Details" asp-route-id="@newsItem.Id">View
-                                    details</a>
+                                <a class="btn btn-primary" asp-controller="News" asp-action="Details"
+                                   asp-route-id="@newsItem.Id">@Localizer["Details"]</a>
                             </div>
                         </div>
                     </div>

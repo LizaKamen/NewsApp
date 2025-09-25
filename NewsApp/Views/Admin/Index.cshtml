@@ -1,3 +1,5 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model List<NewsItem>
 
 @{
@@ -12,7 +14,6 @@
 </head>
 <body>
 <div>
-    <a class="btn btn-primary" asp-action="Create">Create</a>
     @{
         if (Model.Count > 0)
         {
@@ -20,14 +21,14 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>SubTitle</th>
-                        <th>Content</th>
-                        <th>Created</th>
-                        <th>Author</th>
-                        <th>Path to image</th>
-                        <th>Image preview</th>
-                        <th>Actions</th>
+                        <th>@Localizer["Title"]</th>
+                        <th>@Localizer["Subtitle"]</th>
+                        <th>@Localizer["Content"]</th>
+                        <th>@Localizer["Created"]</th>
+                        <th>@Localizer["Author"]</th>
+                        <th>@Localizer["PathToImage"]</th>
+                        <th>@Localizer["ImagePreview"]</th>
+                        <th>@Localizer["Actions"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,8 +44,8 @@
                             <td>@newsItem.PathToImage</td>
                             <td><img width="30px" src="@newsItem.PathToImage" alt="@newsItem.PathToImage"></td>
                             <td>
-                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@newsItem.Id">Edit</a>
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@newsItem.Id">Delete</a>
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@newsItem.Id">@Localizer["Edit"]</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@newsItem.Id">@Localizer["Delete"]</a>
                             </td>
                         </tr>
                     }
@@ -53,6 +54,7 @@
             </div>
         }
     }
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create"]</a>
 </div>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Back" xml:space="preserve">
+        <value>戻る</value>
+    </data>
+    <data name="Content" xml:space="preserve">
+        <value>コンテンツ</value>
+    </data>
+    <data name="Image" xml:space="preserve">
+        <value>画像</value>
+    </data>
+    <data name="Submit" xml:space="preserve">
+        <value>提出する</value>
+    </data>
+    <data name="Subtitle" xml:space="preserve">
+        <value>字幕</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>タイトル</value>
+    </data>
+</root>
