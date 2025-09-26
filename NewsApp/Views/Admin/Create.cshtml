@@ -14,24 +14,29 @@
 <div>
     <a class="btn btn-primary" asp-action="Index">@Localizer["Back"]</a>
     <form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
         <div class="form-group">
             <label for="Title">@Localizer["Title"]</label>
             <input type="text" class="form-control" asp-for="Title"/>
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label for="SubTitle">@Localizer["Subtitle"]</label>
             <input type="text" class="form-control" asp-for="SubTitle"/>
+            <span asp-validation-for="SubTitle" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label for="Title">@Localizer["Content"]</label>
             <input type="text" class="form-control" asp-for="Content"/>
+            <span asp-validation-for="Content" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label for="ImageFile">@Localizer["Image"]</label>
             <input type="file" class="form-control" asp-for="ImageFile"/>
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">@Localizer["SubmitCreate"]</button>
     </form>

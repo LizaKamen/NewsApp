@@ -16,10 +16,10 @@
 <div>
     <a class="btn btn-primary" asp-action="Index">@Localizer["Back"]</a>
     <h1>@Model.Title</h1>
-    <h2>@Model.SubTitle</h2>
+    <h2 class="text-muted">@Model.SubTitle</h2>
     <h3>@Model.Created</h3>
     <h3>@Model.Author</h3>
-    <img src="@Model.PathToImage" alt="@Model.PathToImage"/>
+    <img height="400px" src="@Model.PathToImage" alt="@Model.PathToImage"/>
     <p>@Model.Content</p>
 </div>
 </body>

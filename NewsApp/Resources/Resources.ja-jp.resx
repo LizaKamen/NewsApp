@@ -1,0 +1,26 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="TitleRequired" xml:space="preserve">
+        <value>タイトルフィールドは必須です。</value>
+    </data>
+    <data name="SubtitleRequired" xml:space="preserve">
+        <value>サブタイトルフィールドは必須です。</value>
+    </data>
+    <data name="ContentRequired" xml:space="preserve">
+        <value>コンテンツフィールドは必須です。</value>
+    </data>
+    <data name="ImageRequired" xml:space="preserve">
+        <value>画像ファイルフィールドは必須です。</value>
+    </data>
+</root>

@@ -1,6 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@model List<NewsItem>
+@model NewsApp.ViewModels.IndexViewModel<NewsItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,10 +15,10 @@
 <body>
 <div>
     @{
-        if (Model.Count > 0)
+        if (Model.Items.Any())
         {
             <div class="row">
-            @foreach (var newsItem in Model)
+            @foreach (var newsItem in Model.Items)
             {
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -35,6 +35,8 @@
             </div>
         }
     }
+    
+    <partial name="_PaginationPartial" model="Model.PagingInfo"/>
 </div>
 </body>
 </html>
